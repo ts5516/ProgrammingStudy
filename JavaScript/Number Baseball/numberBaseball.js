@@ -6,14 +6,14 @@ const GAMESTATE = {
 
 Object.freeze(GAMESTATE);
 
-var number = '';
 var numberBaseball = {
+    number : '',
     strike : 0,
     ball : 0,
     gamestate : GAMESTATE.GAMEPLAY
 }
 
-function playGame(){
+function PlayGame(){
     const prompt = require("prompt-sync")();
     
     InitPlay();
@@ -31,18 +31,18 @@ function playGame(){
 
 function InitPlay(){
     numberBaseball.gamestate = GAMESTATE.GAMEPLAY;
-    number = '';
+    numberBaseball.number = '';
     CreateNumber();
     WriteGameStartScript();
 }
 
-function createNumber(){
+function CreateNumber(){
     var numArray = new Array('0','1','2','3','4','5','6','7','8','9');
 
     Shuffle(numArray);
 
     for(var i = 0; i<4; i++)
-        number += numArray[i];
+        numberBaseball.number += numArray[i];
 }
 
 function Shuffle(array){
@@ -93,8 +93,8 @@ function IsRedundancyNumber(num){
 
 function CompareNumber(input){
     for(var i = 0; i<4; i++){
-        if(number.indexOf(input[i]) !== -1){
-            if(number[i] === input[i])
+        if(numberBaseball.number.indexOf(input[i]) !== -1){
+            if(numberBaseball.number[i] === input[i])
                 numberBaseball.strike++;
             else
                 numberBaseball.ball++;
