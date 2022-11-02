@@ -16,50 +16,49 @@ var numberBaseball = {
 function playGame(){
     const prompt = require("prompt-sync")();
     
-    initPlay();
+    InitPlay();
 
     while(numberBaseball.gamestate !== GAMESTATE.GAMEEND){
         var input = prompt("숫자 입력: ");
-        playNumberBaseball(input);
+        PlayNumberBaseball(input);
 
         if(numberBaseball.gamestate === GAMESTATE.GAMEOVER){
-            gameOver();
+            GameOver();
         }
     }
     
 }
 
-function initPlay(){
+function InitPlay(){
     numberBaseball.gamestate = GAMESTATE.GAMEPLAY;
     number = '';
-    createNumber();
-    writeGameStartScript();
+    CreateNumber();
+    WriteGameStartScript();
 }
 
 function createNumber(){
     var numArray = new Array('0','1','2','3','4','5','6','7','8','9');
 
-    shuffle(numArray);
+    Shuffle(numArray);
 
     for(var i = 0; i<4; i++)
         number += numArray[i];
-    //console.log(number);
 }
 
-function shuffle(array){
+function Shuffle(array){
     array.sort(() => Math.random() - 0.5);
 }
 
-function writeGameStartScript(){
+function WriteGameStartScript(){
     console.log("\n숫자야구를 시작합니다!\n");
     console.log("숫자를 입력해주세요!");
     console.log("숫자는 0~9까지 중복되지 않는 4자리 숫자입니다!");
 }
 
-function playNumberBaseball(input){
+function PlayNumberBaseball(input){
     if(IsValidNumber(input)){
-        compareNumber(input);
-        reportcompareResult();
+        CompareNumber(input);
+        ReportcompareResult();
     }
     else{
         console.log("올바르지 않은 입력입니다. 다시 입력해주세요!");
@@ -92,7 +91,7 @@ function IsRedundancyNumber(num){
     return arr.length === set.size;
 }
 
-function compareNumber(input){
+function CompareNumber(input){
     for(var i = 0; i<4; i++){
         if(number.indexOf(input[i]) !== -1){
             if(number[i] === input[i])
@@ -103,7 +102,7 @@ function compareNumber(input){
     }
 }
 
-function reportcompareResult(){
+function ReportcompareResult(){
     if(numberBaseball.strike === 0 && numberBaseball.ball === 0)
         console.log("Out");
     else if(numberBaseball.strike === 0)
@@ -123,7 +122,7 @@ function reportcompareResult(){
     numberBaseball.ball = 0;
 }
 
-function gameOver(){
+function GameOver(){
     console.log("게임이 종료되었습니다. 재시작하시겠습니까? (y/n)");
     const prompt = require("prompt-sync")();
     var input = prompt("재시작 여부: ");
@@ -131,8 +130,8 @@ function gameOver(){
     if(input === 'n')
         numberBaseball.gamestate = GAMESTATE.GAMEEND;
     else{
-        initPlay();
+        InitPlay();
     }
 }
 
-playGame();
+PlayGame();
