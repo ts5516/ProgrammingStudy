@@ -19,4 +19,4 @@
 - [14장 점진적인 개선](https://github.com/ts5516/ProgrammingStudy/blob/main/Clean%20Code/14%EC%9E%A5%20%EC%A0%90%EC%A7%84%EC%A0%81%EC%9D%B8%20%EA%B0%9C%EC%84%A0.md)
 
 ## Effective Javascript
-- [1장 자바스크립트에 익숙해지기](https://github.com/ts5516/ProgrammingStudy/blob/main/Effective%20Javascript/1%EC%9E%A5%20%EC%95%84%EC%9D%B4%ED%85%9C2.md)
+- [1장 자바스크립트에 익숙해지기](https://github.com/ts5516/ProgrammingStudy/blob/main/Effective%20Javascript/1%EC%9E%A5%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%97%90%20%EC%9D%B5%EC%88%99%ED%95%B4%EC%A7%80%EA%B8%B0.md)
