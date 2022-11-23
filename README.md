@@ -2,7 +2,7 @@
 
 ## 목록
 - ### [Clean Code](https://github.com/ts5516/ProgrammingStudy#clean-code)
-- ### [Effective Javascript]
+- ### [Effective Javascript](https://github.com/ts5516/ProgrammingStudy#effective-javascript)
 
 ## Clean Code
 - [1장 깨끗한 코드](https://github.com/ts5516/ProgrammingStudy/blob/main/Clean%20Code/1%EC%9E%A5%20%EA%B9%A8%EB%81%97%ED%95%9C%20%EC%BD%94%EB%93%9C.md)
@@ -19,3 +19,4 @@
 - [14장 점진적인 개선](https://github.com/ts5516/ProgrammingStudy/blob/main/Clean%20Code/14%EC%9E%A5%20%EC%A0%90%EC%A7%84%EC%A0%81%EC%9D%B8%20%EA%B0%9C%EC%84%A0.md)
 
 ## Effective Javascript
+- [1장 자바스크립트에 익숙해지기](https://github.com/ts5516/ProgrammingStudy/blob/main/Effective%20Javascript/1%EC%9E%A5%20%EC%95%84%EC%9D%B4%ED%85%9C2.md)
