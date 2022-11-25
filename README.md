@@ -1,4 +1,7 @@
 # ProgrammingStudy
+## 공부할 내용
+- 1장 아이템 7 - node.js 문자열 인코딩 시스템 조사
+- 2장 아이템 8,9,16,17
 
 ## 목록
 - ### [Clean Code](https://github.com/ts5516/ProgrammingStudy#clean-code)
@@ -20,8 +23,3 @@
 
 ## Effective Javascript
 - [1장 자바스크립트에 익숙해지기](https://github.com/ts5516/ProgrammingStudy/blob/main/Effective%20Javascript/1%EC%9E%A5%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%97%90%20%EC%9D%B5%EC%88%99%ED%95%B4%EC%A7%80%EA%B8%B0.md)
-
-
-## 공부할 내용
-- 1장 아이템 7 - node.js 문자열 인코딩 시스템 조사
-- 2장 아이템 8,9,16,17
