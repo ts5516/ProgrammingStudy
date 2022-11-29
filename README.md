@@ -23,3 +23,4 @@
 
 ## Effective Javascript
 - [1장 자바스크립트에 익숙해지기](https://github.com/ts5516/ProgrammingStudy/blob/main/Effective%20Javascript/1%EC%9E%A5%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%97%90%20%EC%9D%B5%EC%88%99%ED%95%B4%EC%A7%80%EA%B8%B0.md)
+- [2장 변수 스코프](https://github.com/ts5516/ProgrammingStudy/blob/main/Effective%20Javascript/2%EC%9E%A5%20%EB%B3%80%EC%88%98%20%EC%8A%A4%EC%BD%94%ED%94%84.md)
