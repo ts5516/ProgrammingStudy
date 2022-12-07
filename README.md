@@ -1,9 +1,6 @@
 # ProgrammingStudy
 ## 공부할 내용
-- 3장 25 26 27 29 내 코드와 연관지어서 공부하기
-- class로 내부 변수 카운터 하기
-- 익명 함수 표현식, 기명 함수 표현식, 애로우 함수 차이 공부하기
-- 클로저 좀 더 알아보기
+- 4장 36부터 끝까지
 
 ## 목록
 - ### [Clean Code](https://github.com/ts5516/ProgrammingStudy#clean-code)
