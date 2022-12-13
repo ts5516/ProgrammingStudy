@@ -1,6 +1,6 @@
 # ProgrammingStudy
 ## 공부할 내용
-- 4장 36부터 끝까지
+- 4장 36부터 끝까지 예제 코드 들어서 설명
 
 ## 목록
 - ### [Clean Code](https://github.com/ts5516/ProgrammingStudy#clean-code)
