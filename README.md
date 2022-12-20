@@ -25,3 +25,4 @@
 - [2장 변수 스코프](https://github.com/ts5516/ProgrammingStudy/blob/main/Effective%20Javascript/2%EC%9E%A5%20%EB%B3%80%EC%88%98%20%EC%8A%A4%EC%BD%94%ED%94%84.md)
 - [3장 함수 사용하기](https://github.com/ts5516/ProgrammingStudy/blob/main/Effective%20Javascript/3%EC%9E%A5%20%ED%95%A8%EC%88%98%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
 - [4장 객체와 프로토타입](https://github.com/ts5516/ProgrammingStudy/blob/main/Effective%20Javascript/4%EC%9E%A5%20%EA%B0%9D%EC%B2%B4%EC%99%80%20%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85.md)
+- [5장 배열과 딕셔너리](https://github.com/ts5516/ProgrammingStudy/blob/main/Effective%20Javascript/5%EC%9E%A5%20%EB%B0%B0%EC%97%B4%EA%B3%BC%20%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC.md)
