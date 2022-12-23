@@ -8,10 +8,10 @@ interface ISortedQueue<T> {
     isEmpty(): boolean
     isContain(item: T): boolean
     getComparer(): string
-    filter(predicate: (value: T, index: number, array: T[]) => unknown): SortedQueue<T>
-    map(predicate: (value: T, index: number, array: T[]) => unknown): SortedQueue<T>
-    foreach(predicate: (value: T, index: number, array: T[]) => unknown): SortedQueue<T>
     concat(squeue: SortedQueue<T>): SortedQueue<T>
+    filter(predicate: (value: T, index: number, array: T[]) => T): SortedQueue<T>
+    map(predicate: (value: T, index: number, array: T[]) => T): SortedQueue<T>
+    foreach(predicate: (value: T, index: number, array: T[]) => unknown): void
     iterator(): T | undefined
 }
 
@@ -76,24 +76,24 @@ export class SortedQueue<T> implements ISortedQueue<T>{
         return new SortedQueue<T>(this.items, this.comparer);
     }
 
-    filter(predicate: (value: T, index: number, array: T[]) => unknown)
+    filter(predicate: (value: T, index: number, array: T[]) => T)
         : SortedQueue<T> {
-        this.items = this.items.filter(predicate);
-        return this.clone();
+        return new SortedQueue<T>(this.items.filter(predicate), this.comparer);
     }
 
-    map(predicate: (value: T, index: number, array: T[]) => unknown)
+    map(predicate: (value: T, index: number, array: T[]) => T)
         : SortedQueue<T> {
-        this.items.map(predicate);
-        return this.clone();
+        return new SortedQueue<T>(this.items.map(predicate), this.comparer);
+
     }
 
     concat(squeue: SortedQueue<T>): SortedQueue<T> {
-        return new SortedQueue<T>([...this.items, ...squeue], this.comparer);
+        return new SortedQueue<T>([...this.items, ...squeue.items], this.comparer);
     }
 
-    foreach(): SortedQueue<T> {
-        return this;
+    foreach(predicate: (value: T, index: number, array: T[]) => unknown)
+        : void {
+        this.items.forEach(predicate);
     }
 
     iterator(): T | undefined {
