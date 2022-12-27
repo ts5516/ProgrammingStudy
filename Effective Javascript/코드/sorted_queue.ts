@@ -13,8 +13,9 @@ export interface ISortedQueue<T> {
     concat(squeue: SortedQueue<T>): SortedQueue<T>
 
     filter(predicate: (value: T, index: number, array: T[]) => unknown): SortedQueue<T>
-    map(predicate: (value: T, index: number, array: T[]) => T): SortedQueue<T>
-    foreach(predicate: (value: T, index: number, array: T[]) => void): void
+    map(callbackfn: (value: T, index: number, array: T[]) => T): SortedQueue<T>
+    foreach(callbackfn: (value: T, index: number, array: T[]) => void): void
+    reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T, initialValue: T): T
 
     [Symbol.iterator](): Iterator<T>;
 }
@@ -83,18 +84,26 @@ export class SortedQueue<T> implements ISortedQueue<T>{
         return new SortedQueue<T>(this.items.filter(predicate), this.comparer);
     }
 
-    map(predicate: (value: T, index: number, array: T[]) => T)
+    map(callbackfn: (value: T, index: number, array: T[]) => T)
         : SortedQueue<T> {
-        return new SortedQueue<T>(this.items.map(predicate), this.comparer);
+        return new SortedQueue<T>(this.items.map(callbackfn), this.comparer);
     }
 
-    concat(squeue: SortedQueue<T>): SortedQueue<T> {
-        return new SortedQueue<T>([...this.items, ...squeue.items], this.comparer);
+    concat(que: SortedQueue<T>): SortedQueue<T> {
+        return new SortedQueue<T>([...this.items, ...que.items], this.comparer);
     }
 
-    foreach(predicate: (value: T, index: number, array: T[]) => void)
+    foreach(callbackfn: (value: T, index: number, array: T[]) => void)
         : void {
-        this.items.forEach(predicate);
+        this.items.forEach(callbackfn);
+    }
+
+    reduce(
+        callbackfn: (
+            previousValue: T, currentValue: T,
+            currentIndex: number, array: T[]) => T,
+        initialValue: T): T {
+        return this.items.reduce(callbackfn, initialValue);
     }
 
     [Symbol.iterator](): Iterator<T> {

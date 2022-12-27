@@ -4,7 +4,7 @@ function test() {
     test_isSortedQueue();
     test_fnContainAndClear()
     test_isClone();
-    test_fnFilterAndMapAndForeach();
+    test_mapReduceFilterForeach();
     test_iterator();
 }
 
@@ -59,7 +59,7 @@ function test_isClone() {
     console.log('queue4: ' + [...queue4]); // 0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7
 }
 
-function test_fnFilterAndMapAndForeach() {
+function test_mapReduceFilterForeach() {
     const numQueue = new SortedQueue<number>([0, 1, 2, 3, 4, 5, 6, 7]);
     const oddNumQueue = numQueue.filter(num => num % 2 === 1);
     const numMultyplyQueue = numQueue.map(num => num * 2)
@@ -78,6 +78,8 @@ function test_fnFilterAndMapAndForeach() {
     // num 5: 10
     // num 6: 12
     // num 7: 14
+
+    console.log(numMultyplyQueue.reduce((acc, cur) => { return acc += cur; }, 0)); // 56
 }
 
 function test_iterator() {
