@@ -1,18 +1,22 @@
-interface ISortedQueue<T> {
-    enqueue(item: T, priority: number): void
+export interface ISortedQueue<T> {
+    enqueue(item: T): void
     dequeue(): T | undefined
-    clear(): void
     peek(): T | undefined
-    count(): number
-    clone(): SortedQueue<T>
+    clear(): void
+
+    get length(): number
+
     isEmpty(): boolean
     isContain(item: T): boolean
-    getComparer(): string
+
+    clone(): SortedQueue<T>
     concat(squeue: SortedQueue<T>): SortedQueue<T>
-    filter(predicate: (value: T, index: number, array: T[]) => T): SortedQueue<T>
+
+    filter(predicate: (value: T, index: number, array: T[]) => unknown): SortedQueue<T>
     map(predicate: (value: T, index: number, array: T[]) => T): SortedQueue<T>
-    foreach(predicate: (value: T, index: number, array: T[]) => unknown): void
-    iterator(): T | undefined
+    foreach(predicate: (value: T, index: number, array: T[]) => void): void
+
+    [Symbol.iterator](): Iterator<T>;
 }
 
 export class SortedQueue<T> implements ISortedQueue<T>{
@@ -45,9 +49,9 @@ export class SortedQueue<T> implements ISortedQueue<T>{
         if (this.items.length === 0) {
             return undefined;
         } else {
-            const lastItem = this.items[this.items.length - 1];
-            this.items = this.items.slice(0, this.items.length - 1);
-            return lastItem;
+            const firstItem = this.items[0];
+            this.items = this.items.slice(1, this.items.length);
+            return firstItem;
         }
     }
 
@@ -55,11 +59,9 @@ export class SortedQueue<T> implements ISortedQueue<T>{
         return this.items.length === 0 ? undefined : this.items[0];
     }
 
-    getComparer(): string { return this.comparer.toString(); }
-
     clear(): void { this.items = []; }
 
-    count(): number { return this.items.length; }
+    get length(): number { return this.items.length; }
 
     isEmpty(): boolean { return this.items.length === 0; }
 
@@ -76,7 +78,7 @@ export class SortedQueue<T> implements ISortedQueue<T>{
         return new SortedQueue<T>(this.items, this.comparer);
     }
 
-    filter(predicate: (value: T, index: number, array: T[]) => T)
+    filter(predicate: (value: T, index: number, array: T[]) => unknown)
         : SortedQueue<T> {
         return new SortedQueue<T>(this.items.filter(predicate), this.comparer);
     }
@@ -84,19 +86,27 @@ export class SortedQueue<T> implements ISortedQueue<T>{
     map(predicate: (value: T, index: number, array: T[]) => T)
         : SortedQueue<T> {
         return new SortedQueue<T>(this.items.map(predicate), this.comparer);
-
     }
 
     concat(squeue: SortedQueue<T>): SortedQueue<T> {
         return new SortedQueue<T>([...this.items, ...squeue.items], this.comparer);
     }
 
-    foreach(predicate: (value: T, index: number, array: T[]) => unknown)
+    foreach(predicate: (value: T, index: number, array: T[]) => void)
         : void {
         this.items.forEach(predicate);
     }
 
-    iterator(): T | undefined {
-        return this.peek();
+    [Symbol.iterator](): Iterator<T> {
+        let index = 0;
+        return {
+            next: (): IteratorResult<T> => {
+                if (this.items.length === index) {
+                    return { value: undefined, done: true };
+                } else {
+                    return { value: this.items[index++], done: false };
+                }
+            }
+        }
     }
 }
