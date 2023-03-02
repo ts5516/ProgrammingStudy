@@ -2,14 +2,14 @@ import Web3 from "web3";
 
 async function run() {
     const fromNode = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
-    const toNode = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8787"));
+    const toNode = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8546"));
 
     try {
         const fromAccount = await getAccount(fromNode);
         const toAccount = await getAccount(toNode);
 
-        await unlockAccount(fromNode, fromAccount, '12345');
-        //await unlockAccount(toNode, toAccount, '12345');
+        await unlockAccount(fromNode, fromAccount, '123456789');
+        await unlockAccount(toNode, toAccount, '123456789');
 
         fromNode.eth.getBalance(fromAccount).then((result) => {
             console.log("fromNode 보내기 전: " + result);
@@ -20,7 +20,6 @@ async function run() {
 
         await sendTransaction(fromNode, fromAccount, toAccount, '300000');
 
-        fromNode.eth.getTransactionReceipt
         fromNode.eth.getBalance(fromAccount).then((result) => {
             console.log("fromNode 보낸 후: " + result);
         });
@@ -60,7 +59,9 @@ async function sendTransaction(fromNode: Web3, fromAccount: string, toAccount: s
             console.log("receipt: " + receipt);
         })
         .catch(() => {
-            fromNode.eth.getBalance(fromAccount).then(console.log);
+            fromNode.eth.getBalance(fromAccount).then((balance) => {
+                console.log('error: 잔액이 ' + balance + '여서 ' + value + '보다 작음');
+            });
         });
 }
 

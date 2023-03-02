@@ -1,0 +1,30 @@
+=============== Jan 19, 2023 (KST) ===============
+16:09:20.535376 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:09:20.537376 db@open opening
+16:09:20.538375 version@stat F·[] S·0B[] Sc·[]
+16:09:20.539375 db@janitor F·2 G·0
+16:09:20.539375 db@open done T·1.9988ms
+16:09:20.555376 db@close closing
+16:09:20.555376 db@close done T·0s
+=============== Jan 19, 2023 (KST) ===============
+16:10:40.128112 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:10:40.128640 version@stat F·[] S·0B[] Sc·[]
+16:10:40.128640 db@open opening
+16:10:40.128640 journal@recovery F·1
+16:10:40.130204 journal@recovery recovering @1
+16:10:40.133373 memdb@flush created L0@2 N·626 S·52KiB "\x02d\xfc..\x19Ba,v433":"\xfe\x88\xcf..H\xef\xcc,v364"
+16:10:40.134925 version@stat F·[1] S·52KiB[52KiB] Sc·[0.25]
+16:10:40.138185 db@janitor F·3 G·0
+16:10:40.138185 db@open done T·9.5455ms
+=============== Jan 20, 2023 (KST) ===============
+12:02:55.542063 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+12:02:55.547065 version@stat F·[1] S·52KiB[52KiB] Sc·[0.25]
+12:02:55.547065 db@open opening
+12:02:55.548064 journal@recovery F·1
+12:02:55.550063 journal@recovery recovering @3
+12:02:55.552066 memdb@flush created L0@5 N·1188 S·58KiB "Dat..ion,v629":"unc..own,v635"
+12:02:55.554066 version@stat F·[2] S·110KiB[110KiB] Sc·[0.50]
+12:02:55.556720 db@janitor F·4 G·0
+12:02:55.556720 db@open done T·9.6551ms
+12:49:43.681907 db@close closing
+12:49:43.681907 db@close done T·0s

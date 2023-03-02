@@ -1,0 +1,5 @@
+geth --networkid 12345 --datadir "./data" --bootnodes 'enode://7e01e5035053a2fcc2f6411f060971cb974676de60008fe9fccaa4f249a0c6f38f783636598f833234effdd93884ba13d7a20c8b54539394b33895c8160852b1@127.0.0.1:0?discport=30301' --port 30303 --http --http.addr "127.0.0.1" --http.port 8545 --http.corsdomain "*" --http.api "admin,miner,txpool,web3,personal,eth,net" --syncmode full --ipcdisable --allow-insecure-unlock --mine console
+
+geth --networkid 12345 --datadir "./data" --bootnodes 'enode://7e01e5035053a2fcc2f6411f060971cb974676de60008fe9fccaa4f249a0c6f38f783636598f833234effdd93884ba13d7a20c8b54539394b33895c8160852b1@127.0.0.1:0?discport=30301' --port 30304 --http --http.addr "127.0.0.1" --http.port 8546 --authrpc.port 8787 --http.corsdomain "*" --http.api "admin,miner,txpool,web3,personal,eth,net" --syncmode full --ipcdisable --allow-insecure-unlock  console
+
+bootnode -nodekey "./boot.key" -verbosity 7 -addr "127.0.0.1:30301"
